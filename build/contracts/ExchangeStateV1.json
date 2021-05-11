@@ -1,0 +1,2486 @@
+{
+  "contractName": "ExchangeStateV1",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "OperatorAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "OperatorRemoved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "addOperator",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "completed",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "isOperator",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "isOwner",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "removeOperator",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "salt",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tokenId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "enum ExchangeDomainV1.AssetType",
+                  "name": "assetType",
+                  "type": "uint8"
+                }
+              ],
+              "internalType": "struct ExchangeDomainV1.Asset",
+              "name": "sellAsset",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tokenId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "enum ExchangeDomainV1.AssetType",
+                  "name": "assetType",
+                  "type": "uint8"
+                }
+              ],
+              "internalType": "struct ExchangeDomainV1.Asset",
+              "name": "buyAsset",
+              "type": "tuple"
+            }
+          ],
+          "internalType": "struct ExchangeDomainV1.OrderKey",
+          "name": "key",
+          "type": "tuple"
+        }
+      ],
+      "name": "getCompleted",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "salt",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tokenId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "enum ExchangeDomainV1.AssetType",
+                  "name": "assetType",
+                  "type": "uint8"
+                }
+              ],
+              "internalType": "struct ExchangeDomainV1.Asset",
+              "name": "sellAsset",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tokenId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "enum ExchangeDomainV1.AssetType",
+                  "name": "assetType",
+                  "type": "uint8"
+                }
+              ],
+              "internalType": "struct ExchangeDomainV1.Asset",
+              "name": "buyAsset",
+              "type": "tuple"
+            }
+          ],
+          "internalType": "struct ExchangeDomainV1.OrderKey",
+          "name": "key",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "newCompleted",
+          "type": "uint256"
+        }
+      ],
+      "name": "setCompleted",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "salt",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tokenId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "enum ExchangeDomainV1.AssetType",
+                  "name": "assetType",
+                  "type": "uint8"
+                }
+              ],
+              "internalType": "struct ExchangeDomainV1.Asset",
+              "name": "sellAsset",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tokenId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "enum ExchangeDomainV1.AssetType",
+                  "name": "assetType",
+                  "type": "uint8"
+                }
+              ],
+              "internalType": "struct ExchangeDomainV1.Asset",
+              "name": "buyAsset",
+              "type": "tuple"
+            }
+          ],
+          "internalType": "struct ExchangeDomainV1.OrderKey",
+          "name": "key",
+          "type": "tuple"
+        }
+      ],
+      "name": "getCompletedKey",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.17+commit.d19bba13\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OperatorAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OperatorRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"addOperator\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"completed\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"salt\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"enum ExchangeDomainV1.AssetType\",\"name\":\"assetType\",\"type\":\"uint8\"}],\"internalType\":\"struct ExchangeDomainV1.Asset\",\"name\":\"sellAsset\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"enum ExchangeDomainV1.AssetType\",\"name\":\"assetType\",\"type\":\"uint8\"}],\"internalType\":\"struct ExchangeDomainV1.Asset\",\"name\":\"buyAsset\",\"type\":\"tuple\"}],\"internalType\":\"struct ExchangeDomainV1.OrderKey\",\"name\":\"key\",\"type\":\"tuple\"}],\"name\":\"getCompleted\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"salt\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"enum ExchangeDomainV1.AssetType\",\"name\":\"assetType\",\"type\":\"uint8\"}],\"internalType\":\"struct ExchangeDomainV1.Asset\",\"name\":\"sellAsset\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"enum ExchangeDomainV1.AssetType\",\"name\":\"assetType\",\"type\":\"uint8\"}],\"internalType\":\"struct ExchangeDomainV1.Asset\",\"name\":\"buyAsset\",\"type\":\"tuple\"}],\"internalType\":\"struct ExchangeDomainV1.OrderKey\",\"name\":\"key\",\"type\":\"tuple\"}],\"name\":\"getCompletedKey\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"isOperator\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"isOwner\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"removeOperator\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"salt\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"enum ExchangeDomainV1.AssetType\",\"name\":\"assetType\",\"type\":\"uint8\"}],\"internalType\":\"struct ExchangeDomainV1.Asset\",\"name\":\"sellAsset\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"enum ExchangeDomainV1.AssetType\",\"name\":\"assetType\",\"type\":\"uint8\"}],\"internalType\":\"struct ExchangeDomainV1.Asset\",\"name\":\"buyAsset\",\"type\":\"tuple\"}],\"internalType\":\"struct ExchangeDomainV1.OrderKey\",\"name\":\"key\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"newCompleted\",\"type\":\"uint256\"}],\"name\":\"setCompleted\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"isOwner()\":{\"details\":\"Returns true if the caller is the current owner.\"},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner.      * NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/A/project_2021/0422-NFT-Marketplace/work/BrandonMarketing-Contract/contracts/ExchangeStateV1.sol\":\"ExchangeStateV1\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/A/project_2021/0422-NFT-Marketplace/work/BrandonMarketing-Contract/contracts/Context.sol\":{\"keccak256\":\"0x98d9c3f119eabc9384b14d85702d9a1249760fc32ae8cb295f1071a064c6733a\",\"urls\":[\"bzz-raw://a3405e6d7e177d0ef81858e81dea76264c9b71a8dda1efe3911df79f45fbb848\",\"dweb:/ipfs/Qmf69RTdxy32UXNJPFQz8M8C6Shhf1i6B1NiYWzDA8FUnS\"]},\"/A/project_2021/0422-NFT-Marketplace/work/BrandonMarketing-Contract/contracts/ExchangeDomainV1.sol\":{\"keccak256\":\"0x772e1b51347b641a65b04ed0e11b62e9ea4fcbea46fb69cbca2042b1cd89eff7\",\"urls\":[\"bzz-raw://25b0ae7f391121f5272efbda601ad82d89102ac75812a8b41fa1e9d42732f598\",\"dweb:/ipfs/QmQ234zT6MaTbb7AokJifYyPsBGEckVPKdv2cu2gvtbjXB\"]},\"/A/project_2021/0422-NFT-Marketplace/work/BrandonMarketing-Contract/contracts/ExchangeStateV1.sol\":{\"keccak256\":\"0xa5e9437ca9270ce3e0aa6b80eb43882790cdc21cbdd29cad881dd1623d0a7240\",\"urls\":[\"bzz-raw://111311b5d94ff401d43d01c3e0e70e41419b63340a356241448eea8ec76bb3b4\",\"dweb:/ipfs/Qmc3VupQpxTm3cMaZgkT7BZNFzwZ4qL2gCFT7YySBQdbx6\"]},\"/A/project_2021/0422-NFT-Marketplace/work/BrandonMarketing-Contract/contracts/OperatorRole.sol\":{\"keccak256\":\"0x98914575cfaff5fb0b5a638476353066c59ff38c840b3d35596b60c146a2dbf6\",\"urls\":[\"bzz-raw://81f7e65975934763d7b517c39394cd7db1be9001f307043c7f4bf84688e35f7b\",\"dweb:/ipfs/QmdU4Y9LUJiUPUbqREBmpVSpNzGqe11eEKwGACwa9WnF7s\"]},\"/A/project_2021/0422-NFT-Marketplace/work/BrandonMarketing-Contract/contracts/Ownable.sol\":{\"keccak256\":\"0x20e658ed8545be44007e98019ff453d944204e09e24d61d2542a72741b2880c4\",\"urls\":[\"bzz-raw://2ae40eb8fdb3eb77f404acfdbc08cb90a86cf6b4c800a2c8423efe5c9d8d89f2\",\"dweb:/ipfs/QmS4BySNdPyXPUjy6iP2ebkHv8MhpoZ2q3Qvz84yjcvn9k\"]},\"/A/project_2021/0422-NFT-Marketplace/work/BrandonMarketing-Contract/contracts/OwnableOperatorRole.sol\":{\"keccak256\":\"0x0c2ec8ec801cf45392cce9c3fd295800e6d548ae206325e8f9faa4fa0e8552f3\",\"urls\":[\"bzz-raw://9dba8057be7491cf7c2a8e2f8b954af81d1ce91a781119725afefdf42074590b\",\"dweb:/ipfs/Qmdus3ZWkJ7oq55Q25gazM7DmavTxspWWgAZgqsHZ24c4L\"]},\"/A/project_2021/0422-NFT-Marketplace/work/BrandonMarketing-Contract/contracts/Roles.sol\":{\"keccak256\":\"0x09f299873ffba456a5f47d822cfb0a58eb7d0b4aad05abf0ff49522b28f06374\",\"urls\":[\"bzz-raw://34e532480b34ecf7fc1c5bb3aa6ed73688b62f8ec2a03fff69ae68eed0bf6b24\",\"dweb:/ipfs/QmTqGNyVvqjj6n8WGXtBjTF15k7YBa4o2ZtUeHDqFNNxGZ\"]}},\"version\":1}",
+  "bytecode": "0x608060405260006100146100b760201b60201c565b9050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508073ffffffffffffffffffffffffffffffffffffffff16600073ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3506100bf565b600033905090565b6111a4806100ce6000396000f3fe608060405234801561001057600080fd5b50600436106100a95760003560e01c80639870d7fe116100715780639870d7fe14610140578063ac8a584a1461015c578063dc10fb0a14610178578063f2fde38b146101a8578063f6419d96146101c4578063fb0000c0146101f4576100a9565b80633a076e9a146100ae5780636d70f7ae146100ca578063715018a6146100fa5780638da5cb5b146101045780638f32d59b14610122575b600080fd5b6100c860048036036100c39190810190610bbb565b610224565b005b6100e460048036036100df9190810190610b3f565b6102a7565b6040516100f19190610f30565b60405180910390f35b6101026102c4565b005b61010c6103ca565b6040516101199190610f15565b60405180910390f35b61012a6103f3565b6040516101379190610f30565b60405180910390f35b61015a60048036036101559190810190610b3f565b610451565b005b61017660048036036101719190810190610b3f565b6104a4565b005b610192600480360361018d9190810190610bf9565b6104f7565b60405161019f9190610f4b565b60405180910390f35b6101c260048036036101bd9190810190610b3f565b610559565b005b6101de60048036036101d99190810190610b68565b6105ac565b6040516101eb9190611026565b60405180910390f35b61020e60048036036102099190810190610b91565b6105c4565b60405161021b9190611026565b60405180910390f35b61023461022f6105f9565b6102a7565b610273576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161026a90610fa6565b60405180910390fd5b80600260006102918580360361028c9190810190610bf9565b6104f7565b8152602001908152602001600020819055505050565b60006102bd82600161060190919063ffffffff16565b9050919050565b6102cc6103f3565b61030b576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161030290610fe6565b60405180910390fd5b600073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a360008060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166104356105f9565b73ffffffffffffffffffffffffffffffffffffffff1614905090565b6104596103f3565b610498576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161048f90610fe6565b60405180910390fd5b6104a1816106c9565b50565b6104ac6103f3565b6104eb576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016104e290610fe6565b60405180910390fd5b6104f481610723565b50565b60008160000151826040015160000151836040015160200151846060015160000151856060015160200151866020015160405160200161053c96959493929190610ea5565b604051602081830303815290604052805190602001209050919050565b6105616103f3565b6105a0576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161059790610fe6565b60405180910390fd5b6105a98161077d565b50565b60026020528060005260406000206000915090505481565b6000600260006105e3848036036105de9190810190610bf9565b6104f7565b8152602001908152602001600020549050919050565b600033905090565b60008073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff161415610672576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161066990611006565b60405180910390fd5b8260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b6106dd8160016108ab90919063ffffffff16565b8073ffffffffffffffffffffffffffffffffffffffff167fac6fa858e9350a46cec16539926e0fde25b7629f84b5a72bffaae4df888ae86d60405160405180910390a250565b61073781600161095390919063ffffffff16565b8073ffffffffffffffffffffffffffffffffffffffff167f80c0b871b97b595b16a7741c1b06fed0c6f6f558639f18ccbce50724325dc40d60405160405180910390a250565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614156107ed576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016107e490610f86565b60405180910390fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b6108b58282610601565b156108f5576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016108ec90610f66565b60405180910390fd5b60018260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055505050565b61095d8282610601565b61099c576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161099390610fc6565b60405180910390fd5b60008260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055505050565b600081359050610a098161110c565b92915050565b600081359050610a1e81611123565b92915050565b600081359050610a338161113a565b92915050565b600060608284031215610a4b57600080fd5b610a556060611041565b90506000610a65848285016109fa565b6000830152506020610a7984828501610b2a565b6020830152506040610a8d84828501610a24565b60408301525092915050565b60006101008284031215610aac57600080fd5b81905092915050565b60006101008284031215610ac857600080fd5b610ad26080611041565b90506000610ae2848285016109fa565b6000830152506020610af684828501610b2a565b6020830152506040610b0a84828501610a39565b60408301525060a0610b1e84828501610a39565b60608301525092915050565b600081359050610b398161114a565b92915050565b600060208284031215610b5157600080fd5b6000610b5f848285016109fa565b91505092915050565b600060208284031215610b7a57600080fd5b6000610b8884828501610a0f565b91505092915050565b60006101008284031215610ba457600080fd5b6000610bb284828501610a99565b91505092915050565b6000806101208385031215610bcf57600080fd5b6000610bdd85828601610a99565b925050610100610bef85828601610b2a565b9150509250929050565b60006101008284031215610c0c57600080fd5b6000610c1a84828501610ab5565b91505092915050565b610c2c8161107f565b82525050565b610c43610c3e8261107f565b6110d1565b82525050565b610c5281611091565b82525050565b610c618161109d565b82525050565b6000610c74601f8361106e565b91507f526f6c65733a206163636f756e7420616c72656164792068617320726f6c65006000830152602082019050919050565b6000610cb460268361106e565b91507f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160008301527f64647265737300000000000000000000000000000000000000000000000000006020830152604082019050919050565b6000610d1a60348361106e565b91507f4f70657261746f72526f6c653a2063616c6c657220646f6573206e6f7420686160008301527f766520746865204f70657261746f7220726f6c650000000000000000000000006020830152604082019050919050565b6000610d8060218361106e565b91507f526f6c65733a206163636f756e7420646f6573206e6f74206861766520726f6c60008301527f65000000000000000000000000000000000000000000000000000000000000006020830152604082019050919050565b6000610de660208361106e565b91507f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e65726000830152602082019050919050565b6000610e2660228361106e565b91507f526f6c65733a206163636f756e7420697320746865207a65726f20616464726560008301527f73730000000000000000000000000000000000000000000000000000000000006020830152604082019050919050565b610e88816110c7565b82525050565b610e9f610e9a826110c7565b6110f5565b82525050565b6000610eb18289610c32565b601482019150610ec18288610c32565b601482019150610ed18287610e8e565b602082019150610ee18286610c32565b601482019150610ef18285610e8e565b602082019150610f018284610e8e565b602082019150819050979650505050505050565b6000602082019050610f2a6000830184610c23565b92915050565b6000602082019050610f456000830184610c49565b92915050565b6000602082019050610f606000830184610c58565b92915050565b60006020820190508181036000830152610f7f81610c67565b9050919050565b60006020820190508181036000830152610f9f81610ca7565b9050919050565b60006020820190508181036000830152610fbf81610d0d565b9050919050565b60006020820190508181036000830152610fdf81610d73565b9050919050565b60006020820190508181036000830152610fff81610dd9565b9050919050565b6000602082019050818103600083015261101f81610e19565b9050919050565b600060208201905061103b6000830184610e7f565b92915050565b6000604051905081810181811067ffffffffffffffff8211171561106457600080fd5b8060405250919050565b600082825260208201905092915050565b600061108a826110a7565b9050919050565b60008115159050919050565b6000819050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b60006110dc826110e3565b9050919050565b60006110ee826110ff565b9050919050565b6000819050919050565b60008160601b9050919050565b6111158161107f565b811461112057600080fd5b50565b61112c8161109d565b811461113757600080fd5b50565b6005811061114757600080fd5b50565b611153816110c7565b811461115e57600080fd5b5056fea365627a7a723158201f6ec0ca42e5244834d8a2b4c0f8e5dc69dffbc1b5dd903b43f53479fdfc36d06c6578706572696d656e74616cf564736f6c63430005110040",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100a95760003560e01c80639870d7fe116100715780639870d7fe14610140578063ac8a584a1461015c578063dc10fb0a14610178578063f2fde38b146101a8578063f6419d96146101c4578063fb0000c0146101f4576100a9565b80633a076e9a146100ae5780636d70f7ae146100ca578063715018a6146100fa5780638da5cb5b146101045780638f32d59b14610122575b600080fd5b6100c860048036036100c39190810190610bbb565b610224565b005b6100e460048036036100df9190810190610b3f565b6102a7565b6040516100f19190610f30565b60405180910390f35b6101026102c4565b005b61010c6103ca565b6040516101199190610f15565b60405180910390f35b61012a6103f3565b6040516101379190610f30565b60405180910390f35b61015a60048036036101559190810190610b3f565b610451565b005b61017660048036036101719190810190610b3f565b6104a4565b005b610192600480360361018d9190810190610bf9565b6104f7565b60405161019f9190610f4b565b60405180910390f35b6101c260048036036101bd9190810190610b3f565b610559565b005b6101de60048036036101d99190810190610b68565b6105ac565b6040516101eb9190611026565b60405180910390f35b61020e60048036036102099190810190610b91565b6105c4565b60405161021b9190611026565b60405180910390f35b61023461022f6105f9565b6102a7565b610273576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161026a90610fa6565b60405180910390fd5b80600260006102918580360361028c9190810190610bf9565b6104f7565b8152602001908152602001600020819055505050565b60006102bd82600161060190919063ffffffff16565b9050919050565b6102cc6103f3565b61030b576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161030290610fe6565b60405180910390fd5b600073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a360008060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166104356105f9565b73ffffffffffffffffffffffffffffffffffffffff1614905090565b6104596103f3565b610498576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161048f90610fe6565b60405180910390fd5b6104a1816106c9565b50565b6104ac6103f3565b6104eb576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016104e290610fe6565b60405180910390fd5b6104f481610723565b50565b60008160000151826040015160000151836040015160200151846060015160000151856060015160200151866020015160405160200161053c96959493929190610ea5565b604051602081830303815290604052805190602001209050919050565b6105616103f3565b6105a0576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161059790610fe6565b60405180910390fd5b6105a98161077d565b50565b60026020528060005260406000206000915090505481565b6000600260006105e3848036036105de9190810190610bf9565b6104f7565b8152602001908152602001600020549050919050565b600033905090565b60008073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff161415610672576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161066990611006565b60405180910390fd5b8260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b6106dd8160016108ab90919063ffffffff16565b8073ffffffffffffffffffffffffffffffffffffffff167fac6fa858e9350a46cec16539926e0fde25b7629f84b5a72bffaae4df888ae86d60405160405180910390a250565b61073781600161095390919063ffffffff16565b8073ffffffffffffffffffffffffffffffffffffffff167f80c0b871b97b595b16a7741c1b06fed0c6f6f558639f18ccbce50724325dc40d60405160405180910390a250565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614156107ed576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016107e490610f86565b60405180910390fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b6108b58282610601565b156108f5576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016108ec90610f66565b60405180910390fd5b60018260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055505050565b61095d8282610601565b61099c576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161099390610fc6565b60405180910390fd5b60008260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055505050565b600081359050610a098161110c565b92915050565b600081359050610a1e81611123565b92915050565b600081359050610a338161113a565b92915050565b600060608284031215610a4b57600080fd5b610a556060611041565b90506000610a65848285016109fa565b6000830152506020610a7984828501610b2a565b6020830152506040610a8d84828501610a24565b60408301525092915050565b60006101008284031215610aac57600080fd5b81905092915050565b60006101008284031215610ac857600080fd5b610ad26080611041565b90506000610ae2848285016109fa565b6000830152506020610af684828501610b2a565b6020830152506040610b0a84828501610a39565b60408301525060a0610b1e84828501610a39565b60608301525092915050565b600081359050610b398161114a565b92915050565b600060208284031215610b5157600080fd5b6000610b5f848285016109fa565b91505092915050565b600060208284031215610b7a57600080fd5b6000610b8884828501610a0f565b91505092915050565b60006101008284031215610ba457600080fd5b6000610bb284828501610a99565b91505092915050565b6000806101208385031215610bcf57600080fd5b6000610bdd85828601610a99565b925050610100610bef85828601610b2a565b9150509250929050565b60006101008284031215610c0c57600080fd5b6000610c1a84828501610ab5565b91505092915050565b610c2c8161107f565b82525050565b610c43610c3e8261107f565b6110d1565b82525050565b610c5281611091565b82525050565b610c618161109d565b82525050565b6000610c74601f8361106e565b91507f526f6c65733a206163636f756e7420616c72656164792068617320726f6c65006000830152602082019050919050565b6000610cb460268361106e565b91507f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160008301527f64647265737300000000000000000000000000000000000000000000000000006020830152604082019050919050565b6000610d1a60348361106e565b91507f4f70657261746f72526f6c653a2063616c6c657220646f6573206e6f7420686160008301527f766520746865204f70657261746f7220726f6c650000000000000000000000006020830152604082019050919050565b6000610d8060218361106e565b91507f526f6c65733a206163636f756e7420646f6573206e6f74206861766520726f6c60008301527f65000000000000000000000000000000000000000000000000000000000000006020830152604082019050919050565b6000610de660208361106e565b91507f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e65726000830152602082019050919050565b6000610e2660228361106e565b91507f526f6c65733a206163636f756e7420697320746865207a65726f20616464726560008301527f73730000000000000000000000000000000000000000000000000000000000006020830152604082019050919050565b610e88816110c7565b82525050565b610e9f610e9a826110c7565b6110f5565b82525050565b6000610eb18289610c32565b601482019150610ec18288610c32565b601482019150610ed18287610e8e565b602082019150610ee18286610c32565b601482019150610ef18285610e8e565b602082019150610f018284610e8e565b602082019150819050979650505050505050565b6000602082019050610f2a6000830184610c23565b92915050565b6000602082019050610f456000830184610c49565b92915050565b6000602082019050610f606000830184610c58565b92915050565b60006020820190508181036000830152610f7f81610c67565b9050919050565b60006020820190508181036000830152610f9f81610ca7565b9050919050565b60006020820190508181036000830152610fbf81610d0d565b9050919050565b60006020820190508181036000830152610fdf81610d73565b9050919050565b60006020820190508181036000830152610fff81610dd9565b9050919050565b6000602082019050818103600083015261101f81610e19565b9050919050565b600060208201905061103b6000830184610e7f565b92915050565b6000604051905081810181811067ffffffffffffffff8211171561106457600080fd5b8060405250919050565b600082825260208201905092915050565b600061108a826110a7565b9050919050565b60008115159050919050565b6000819050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b60006110dc826110e3565b9050919050565b60006110ee826110ff565b9050919050565b6000819050919050565b60008160601b9050919050565b6111158161107f565b811461112057600080fd5b50565b61112c8161109d565b811461113757600080fd5b50565b6005811061114757600080fd5b50565b611153816110c7565b811461115e57600080fd5b5056fea365627a7a723158201f6ec0ca42e5244834d8a2b4c0f8e5dc69dffbc1b5dd903b43f53479fdfc36d06c6578706572696d656e74616cf564736f6c63430005110040",
+  "sourceMap": "135:745:6:-;;;716:17:13;736:12;:10;;;:12;;:::i;:::-;716:32;;768:9;759:6;;:18;;;;;;;;;;;;;;;;;;826:9;793:43;;822:1;793:43;;;;;;;;;;;;681:163;135:745:6;;806:98:1;851:15;886:10;879:17;;806:98;:::o;135:745:6:-;;;;;;;",
+  "deployedSourceMap": "135:745:6:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;135:745:6;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;445:171;;;;;;;;;;;;;;;;:::i;:::-;;490:113:12;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;1736:140:13;;;:::i;:::-;;925:79;;;:::i;:::-;;;;;;;;;;;;;;;;1291:94;;;:::i;:::-;;;;;;;;;;;;;;;;145:97:14;;;;;;;;;;;;;;;;:::i;:::-;;250:103;;;;;;;;;;;;;;;;:::i;:::-;;624:253:6;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;2031:109:13;;;;;;;;;;;;;;;;:::i;:::-;;233:44:6;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;286:151;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;445:171;381:24:12;392:12;:10;:12::i;:::-;381:10;:24::i;:::-;373:89;;;;;;;;;;;;;;;;;;;;;;596:12:6;562:9;:31;572:20;588:3;572:20;;;;;;;;;;;;:15;:20::i;:::-;562:31;;;;;;;;;;;:46;;;;445:171;;:::o;490:113:12:-;548:4;572:23;587:7;572:10;:14;;:23;;;;:::i;:::-;565:30;;490:113;;;:::o;1736:140:13:-;1137:9;:7;:9::i;:::-;1129:54;;;;;;;;;;;;;;;;;;;;;;1835:1;1798:40;;1819:6;;;;;;;;;;;1798:40;;;;;;;;;;;;1866:1;1849:6;;:19;;;;;;;;;;;;;;;;;;1736:140::o;925:79::-;963:7;990:6;;;;;;;;;;;983:13;;925:79;:::o;1291:94::-;1331:4;1371:6;;;;;;;;;;;1355:22;;:12;:10;:12::i;:::-;:22;;;1348:29;;1291:94;:::o;145:97:14:-;1137:9:13;:7;:9::i;:::-;1129:54;;;;;;;;;;;;;;;;;;;;;;213:21:14;226:7;213:12;:21::i;:::-;145:97;:::o;250:103::-;1137:9:13;:7;:9::i;:::-;1129:54;;;;;;;;;;;;;;;;;;;;;;321:24:14;337:7;321:15;:24::i;:::-;250:103;:::o;624:253:6:-;708:7;762:3;:9;;;773:3;:13;;;:19;;;794:3;:13;;;:21;;;817:3;:12;;;:18;;;837:3;:12;;;:20;;;859:3;:8;;;745:123;;;;;;;;;;;;;;;;;49:4:-1;39:7;30;26:21;22:32;13:7;6:49;745:123:6;;;735:134;;;;;;728:141;;624:253;;;:::o;2031:109:13:-;1137:9;:7;:9::i;:::-;1129:54;;;;;;;;;;;;;;;;;;;;;;2104:28;2123:8;2104:18;:28::i;:::-;2031:109;:::o;233:44:6:-;;;;;;;;;;;;;;;;;:::o;286:151::-;371:7;398:9;:31;408:20;424:3;408:20;;;;;;;;;;;;:15;:20::i;:::-;398:31;;;;;;;;;;;;391:38;;286:151;;;:::o;806:98:1:-;851:15;886:10;879:17;;806:98;:::o;810:203:15:-;882:4;926:1;907:21;;:7;:21;;;;899:68;;;;;;;;;;;;;;;;;;;;;;985:4;:11;;:20;997:7;985:20;;;;;;;;;;;;;;;;;;;;;;;;;978:27;;810:203;;;;:::o;611:128:12:-;670:23;685:7;670:10;:14;;:23;;;;:::i;:::-;723:7;709:22;;;;;;;;;;;;611:128;:::o;747:136::-;809:26;827:7;809:10;:17;;:26;;;;:::i;:::-;867:7;851:24;;;;;;;;;;;;747:136;:::o;2246:229:13:-;2340:1;2320:22;;:8;:22;;;;2312:73;;;;;;;;;;;;;;;;;;;;;;2430:8;2401:38;;2422:6;;;;;;;;;;;2401:38;;;;;;;;;;;;2459:8;2450:6;;:17;;;;;;;;;;;;;;;;;;2246:229;:::o;274:178:15:-;352:18;356:4;362:7;352:3;:18::i;:::-;351:19;343:63;;;;;;;;;;;;;;;;;;;;;;440:4;417;:11;;:20;429:7;417:20;;;;;;;;;;;;;;;;:27;;;;;;;;;;;;;;;;;;274:178;;:::o;532:183::-;612:18;616:4;622:7;612:3;:18::i;:::-;604:64;;;;;;;;;;;;;;;;;;;;;;702:5;679:4;:11;;:20;691:7;679:20;;;;;;;;;;;;;;;;:28;;;;;;;;;;;;;;;;;;532:183;;:::o;5:130:-1:-;;85:6;72:20;63:29;;97:33;124:5;97:33;;;57:78;;;;;142:130;;222:6;209:20;200:29;;234:33;261:5;234:33;;;194:78;;;;;279:156;;372:6;359:20;350:29;;384:46;424:5;384:46;;;344:91;;;;;478:626;;585:4;573:9;568:3;564:19;560:30;557:2;;;603:1;600;593:12;557:2;621:20;636:4;621:20;;;612:29;;692:1;724:49;769:3;760:6;749:9;745:22;724:49;;;717:4;710:5;706:16;699:75;651:134;838:2;871:49;916:3;907:6;896:9;892:22;871:49;;;864:4;857:5;853:16;846:75;795:137;987:2;1020:62;1078:3;1069:6;1058:9;1054:22;1020:62;;;1013:4;1006:5;1002:16;995:88;942:152;551:553;;;;;1152:159;;1263:3;1254:6;1249:3;1245:16;1241:26;1238:2;;;1280:1;1277;1270:12;1238:2;1299:6;1290:15;;1231:80;;;;;1357:804;;1471:6;1459:9;1454:3;1450:19;1446:32;1443:2;;;1491:1;1488;1481:12;1443:2;1509:20;1524:4;1509:20;;;1500:29;;1580:1;1612:49;1657:3;1648:6;1637:9;1633:22;1612:49;;;1605:4;1598:5;1594:16;1587:75;1539:134;1723:2;1756:49;1801:3;1792:6;1781:9;1777:22;1756:49;;;1749:4;1742:5;1738:16;1731:75;1683:134;1872:2;1905:67;1968:3;1959:6;1948:9;1944:22;1905:67;;;1898:4;1891:5;1887:16;1880:93;1827:157;2038:3;2072:67;2135:3;2126:6;2115:9;2111:22;2072:67;;;2065:4;2058:5;2054:16;2047:93;1994:157;1437:724;;;;;2168:130;;2248:6;2235:20;2226:29;;2260:33;2287:5;2260:33;;;2220:78;;;;;2305:241;;2409:2;2397:9;2388:7;2384:23;2380:32;2377:2;;;2425:1;2422;2415:12;2377:2;2460:1;2477:53;2522:7;2513:6;2502:9;2498:22;2477:53;;;2467:63;;2439:97;2371:175;;;;;2553:241;;2657:2;2645:9;2636:7;2632:23;2628:32;2625:2;;;2673:1;2670;2663:12;2625:2;2708:1;2725:53;2770:7;2761:6;2750:9;2746:22;2725:53;;;2715:63;;2687:97;2619:175;;;;;2801:296;;2932:3;2920:9;2911:7;2907:23;2903:33;2900:2;;;2949:1;2946;2939:12;2900:2;2984:1;3001:80;3073:7;3064:6;3053:9;3049:22;3001:80;;;2991:90;;2963:124;2894:203;;;;;3104:422;;;3252:3;3240:9;3231:7;3227:23;3223:33;3220:2;;;3269:1;3266;3259:12;3220:2;3304:1;3321:80;3393:7;3384:6;3373:9;3369:22;3321:80;;;3311:90;;3283:124;3438:3;3457:53;3502:7;3493:6;3482:9;3478:22;3457:53;;;3447:63;;3417:99;3214:312;;;;;;3533:292;;3662:3;3650:9;3641:7;3637:23;3633:33;3630:2;;;3679:1;3676;3669:12;3630:2;3714:1;3731:78;3801:7;3792:6;3781:9;3777:22;3731:78;;;3721:88;;3693:122;3624:201;;;;;3832:113;3915:24;3933:5;3915:24;;;3910:3;3903:37;3897:48;;;3952:152;4053:45;4073:24;4091:5;4073:24;;;4053:45;;;4048:3;4041:58;4035:69;;;4111:104;4188:21;4203:5;4188:21;;;4183:3;4176:34;4170:45;;;4222:113;4305:24;4323:5;4305:24;;;4300:3;4293:37;4287:48;;;4343:331;;4503:67;4567:2;4562:3;4503:67;;;4496:74;;4603:33;4599:1;4594:3;4590:11;4583:54;4665:2;4660:3;4656:12;4649:19;;4489:185;;;;4683:375;;4843:67;4907:2;4902:3;4843:67;;;4836:74;;4943:34;4939:1;4934:3;4930:11;4923:55;5012:8;5007:2;5002:3;4998:12;4991:30;5049:2;5044:3;5040:12;5033:19;;4829:229;;;;5067:389;;5227:67;5291:2;5286:3;5227:67;;;5220:74;;5327:34;5323:1;5318:3;5314:11;5307:55;5396:22;5391:2;5386:3;5382:12;5375:44;5447:2;5442:3;5438:12;5431:19;;5213:243;;;;5465:370;;5625:67;5689:2;5684:3;5625:67;;;5618:74;;5725:34;5721:1;5716:3;5712:11;5705:55;5794:3;5789:2;5784:3;5780:12;5773:25;5826:2;5821:3;5817:12;5810:19;;5611:224;;;;5844:332;;6004:67;6068:2;6063:3;6004:67;;;5997:74;;6104:34;6100:1;6095:3;6091:11;6084:55;6167:2;6162:3;6158:12;6151:19;;5990:186;;;;6185:371;;6345:67;6409:2;6404:3;6345:67;;;6338:74;;6445:34;6441:1;6436:3;6432:11;6425:55;6514:4;6509:2;6504:3;6500:12;6493:26;6547:2;6542:3;6538:12;6531:19;;6331:225;;;;6564:113;6647:24;6665:5;6647:24;;;6642:3;6635:37;6629:48;;;6684:152;6785:45;6805:24;6823:5;6805:24;;;6785:45;;;6780:3;6773:58;6767:69;;;6843:939;;7102:75;7173:3;7164:6;7102:75;;;7199:2;7194:3;7190:12;7183:19;;7213:75;7284:3;7275:6;7213:75;;;7310:2;7305:3;7301:12;7294:19;;7324:75;7395:3;7386:6;7324:75;;;7421:2;7416:3;7412:12;7405:19;;7435:75;7506:3;7497:6;7435:75;;;7532:2;7527:3;7523:12;7516:19;;7546:75;7617:3;7608:6;7546:75;;;7643:2;7638:3;7634:12;7627:19;;7657:75;7728:3;7719:6;7657:75;;;7754:2;7749:3;7745:12;7738:19;;7774:3;7767:10;;7090:692;;;;;;;;;;7789:213;;7907:2;7896:9;7892:18;7884:26;;7921:71;7989:1;7978:9;7974:17;7965:6;7921:71;;;7878:124;;;;;8009:201;;8121:2;8110:9;8106:18;8098:26;;8135:65;8197:1;8186:9;8182:17;8173:6;8135:65;;;8092:118;;;;;8217:213;;8335:2;8324:9;8320:18;8312:26;;8349:71;8417:1;8406:9;8402:17;8393:6;8349:71;;;8306:124;;;;;8437:407;;8628:2;8617:9;8613:18;8605:26;;8678:9;8672:4;8668:20;8664:1;8653:9;8649:17;8642:47;8703:131;8829:4;8703:131;;;8695:139;;8599:245;;;;8851:407;;9042:2;9031:9;9027:18;9019:26;;9092:9;9086:4;9082:20;9078:1;9067:9;9063:17;9056:47;9117:131;9243:4;9117:131;;;9109:139;;9013:245;;;;9265:407;;9456:2;9445:9;9441:18;9433:26;;9506:9;9500:4;9496:20;9492:1;9481:9;9477:17;9470:47;9531:131;9657:4;9531:131;;;9523:139;;9427:245;;;;9679:407;;9870:2;9859:9;9855:18;9847:26;;9920:9;9914:4;9910:20;9906:1;9895:9;9891:17;9884:47;9945:131;10071:4;9945:131;;;9937:139;;9841:245;;;;10093:407;;10284:2;10273:9;10269:18;10261:26;;10334:9;10328:4;10324:20;10320:1;10309:9;10305:17;10298:47;10359:131;10485:4;10359:131;;;10351:139;;10255:245;;;;10507:407;;10698:2;10687:9;10683:18;10675:26;;10748:9;10742:4;10738:20;10734:1;10723:9;10719:17;10712:47;10773:131;10899:4;10773:131;;;10765:139;;10669:245;;;;10921:213;;11039:2;11028:9;11024:18;11016:26;;11053:71;11121:1;11110:9;11106:17;11097:6;11053:71;;;11010:124;;;;;11141:256;;11203:2;11197:9;11187:19;;11241:4;11233:6;11229:17;11340:6;11328:10;11325:22;11304:18;11292:10;11289:34;11286:62;11283:2;;;11361:1;11358;11351:12;11283:2;11381:10;11377:2;11370:22;11181:216;;;;;11405:163;;11520:6;11515:3;11508:19;11557:4;11552:3;11548:14;11533:29;;11501:67;;;;;11576:91;;11638:24;11656:5;11638:24;;;11627:35;;11621:46;;;;11674:85;;11747:5;11740:13;11733:21;11722:32;;11716:43;;;;11766:72;;11828:5;11817:16;;11811:27;;;;11845:121;;11918:42;11911:5;11907:54;11896:65;;11890:76;;;;11973:72;;12035:5;12024:16;;12018:27;;;;12052:95;;12116:26;12136:5;12116:26;;;12105:37;;12099:48;;;;12154:89;;12218:20;12232:5;12218:20;;;12207:31;;12201:42;;;;12250:74;;12314:5;12303:16;;12297:27;;;;12331:94;;12409:5;12405:2;12401:14;12379:36;;12373:52;;;;12433:117;12502:24;12520:5;12502:24;;;12495:5;12492:35;12482:2;;12541:1;12538;12531:12;12482:2;12476:74;;12557:117;12626:24;12644:5;12626:24;;;12619:5;12616:35;12606:2;;12665:1;12662;12655:12;12606:2;12600:74;;12681:107;12763:1;12756:5;12753:12;12743:2;;12779:1;12776;12769:12;12743:2;12737:51;;12795:117;12864:24;12882:5;12864:24;;;12857:5;12854:35;12844:2;;12903:1;12900;12893:12;12844:2;12838:74;",
+  "source": "pragma solidity ^0.5.0;\r\npragma experimental ABIEncoderV2;\r\n\r\nimport './OwnableOperatorRole.sol';\r\nimport './ExchangeDomainV1.sol';\r\n\r\ncontract ExchangeStateV1 is OwnableOperatorRole {\r\n\r\n    // keccak256(OrderKey) => completed\r\n    mapping(bytes32 => uint256) public completed;\r\n\r\n    function getCompleted(ExchangeDomainV1.OrderKey calldata key) view external returns (uint256) {\r\n        return completed[getCompletedKey(key)];\r\n    }\r\n\r\n    function setCompleted(ExchangeDomainV1.OrderKey calldata key, uint256 newCompleted) external onlyOperator {\r\n        completed[getCompletedKey(key)] = newCompleted;\r\n    }\r\n\r\n    function getCompletedKey(ExchangeDomainV1.OrderKey memory key) pure public returns (bytes32) {\r\n        return keccak256(abi.encodePacked(key.owner, key.sellAsset.token, key.sellAsset.tokenId, key.buyAsset.token, key.buyAsset.tokenId, key.salt));\r\n    }\r\n}",
+  "sourcePath": "A:/project_2021/0422-NFT-Marketplace/work/BrandonMarketing-Contract/contracts/ExchangeStateV1.sol",
+  "ast": {
+    "absolutePath": "/A/project_2021/0422-NFT-Marketplace/work/BrandonMarketing-Contract/contracts/ExchangeStateV1.sol",
+    "exportedSymbols": {
+      "ExchangeStateV1": [
+        421
+      ]
+    },
+    "id": 422,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 349,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:6"
+      },
+      {
+        "id": 350,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "25:33:6"
+      },
+      {
+        "absolutePath": "/A/project_2021/0422-NFT-Marketplace/work/BrandonMarketing-Contract/contracts/OwnableOperatorRole.sol",
+        "file": "./OwnableOperatorRole.sol",
+        "id": 351,
+        "nodeType": "ImportDirective",
+        "scope": 422,
+        "sourceUnit": 990,
+        "src": "62:35:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/A/project_2021/0422-NFT-Marketplace/work/BrandonMarketing-Contract/contracts/ExchangeDomainV1.sol",
+        "file": "./ExchangeDomainV1.sol",
+        "id": 352,
+        "nodeType": "ImportDirective",
+        "scope": 422,
+        "sourceUnit": 223,
+        "src": "99:32:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 353,
+              "name": "OwnableOperatorRole",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 989,
+              "src": "163:19:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_OwnableOperatorRole_$989",
+                "typeString": "contract OwnableOperatorRole"
+              }
+            },
+            "id": 354,
+            "nodeType": "InheritanceSpecifier",
+            "src": "163:19:6"
+          }
+        ],
+        "contractDependencies": [
+          98,
+          838,
+          956,
+          989
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 421,
+        "linearizedBaseContracts": [
+          421,
+          989,
+          838,
+          956,
+          98
+        ],
+        "name": "ExchangeStateV1",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 358,
+            "name": "completed",
+            "nodeType": "VariableDeclaration",
+            "scope": 421,
+            "src": "233:44:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_uint256_$",
+              "typeString": "mapping(bytes32 => uint256)"
+            },
+            "typeName": {
+              "id": 357,
+              "keyType": {
+                "id": 355,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "241:7:6",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "233:27:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_uint256_$",
+                "typeString": "mapping(bytes32 => uint256)"
+              },
+              "valueType": {
+                "id": 356,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "252:7:6",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 371,
+              "nodeType": "Block",
+              "src": "380:57:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 365,
+                      "name": "completed",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 358,
+                      "src": "398:9:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_bytes32_$_t_uint256_$",
+                        "typeString": "mapping(bytes32 => uint256)"
+                      }
+                    },
+                    "id": 369,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 367,
+                          "name": "key",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 360,
+                          "src": "424:3:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_OrderKey_$205_calldata_ptr",
+                            "typeString": "struct ExchangeDomainV1.OrderKey calldata"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_struct$_OrderKey_$205_calldata_ptr",
+                            "typeString": "struct ExchangeDomainV1.OrderKey calldata"
+                          }
+                        ],
+                        "id": 366,
+                        "name": "getCompletedKey",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 420,
+                        "src": "408:15:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_internal_pure$_t_struct$_OrderKey_$205_memory_ptr_$returns$_t_bytes32_$",
+                          "typeString": "function (struct ExchangeDomainV1.OrderKey memory) pure returns (bytes32)"
+                        }
+                      },
+                      "id": 368,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "408:20:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "398:31:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 364,
+                  "id": 370,
+                  "nodeType": "Return",
+                  "src": "391:38:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 372,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCompleted",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 361,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 360,
+                  "name": "key",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 372,
+                  "src": "308:38:6",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_OrderKey_$205_calldata_ptr",
+                    "typeString": "struct ExchangeDomainV1.OrderKey"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 359,
+                    "name": "ExchangeDomainV1.OrderKey",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 205,
+                    "src": "308:25:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_OrderKey_$205_storage_ptr",
+                      "typeString": "struct ExchangeDomainV1.OrderKey"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "307:40:6"
+            },
+            "returnParameters": {
+              "id": 364,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 363,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 372,
+                  "src": "371:7:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 362,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "371:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "370:9:6"
+            },
+            "scope": 421,
+            "src": "286:151:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 389,
+              "nodeType": "Block",
+              "src": "551:65:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 387,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 381,
+                        "name": "completed",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 358,
+                        "src": "562:9:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_uint256_$",
+                          "typeString": "mapping(bytes32 => uint256)"
+                        }
+                      },
+                      "id": 385,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 383,
+                            "name": "key",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 374,
+                            "src": "588:3:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_OrderKey_$205_calldata_ptr",
+                              "typeString": "struct ExchangeDomainV1.OrderKey calldata"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_struct$_OrderKey_$205_calldata_ptr",
+                              "typeString": "struct ExchangeDomainV1.OrderKey calldata"
+                            }
+                          ],
+                          "id": 382,
+                          "name": "getCompletedKey",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 420,
+                          "src": "572:15:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_pure$_t_struct$_OrderKey_$205_memory_ptr_$returns$_t_bytes32_$",
+                            "typeString": "function (struct ExchangeDomainV1.OrderKey memory) pure returns (bytes32)"
+                          }
+                        },
+                        "id": 384,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "572:20:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "562:31:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 386,
+                      "name": "newCompleted",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 376,
+                      "src": "596:12:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "562:46:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 388,
+                  "nodeType": "ExpressionStatement",
+                  "src": "562:46:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 390,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 379,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 378,
+                  "name": "onlyOperator",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 792,
+                  "src": "538:12:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "538:12:6"
+              }
+            ],
+            "name": "setCompleted",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 377,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 374,
+                  "name": "key",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 390,
+                  "src": "467:38:6",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_OrderKey_$205_calldata_ptr",
+                    "typeString": "struct ExchangeDomainV1.OrderKey"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 373,
+                    "name": "ExchangeDomainV1.OrderKey",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 205,
+                    "src": "467:25:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_OrderKey_$205_storage_ptr",
+                      "typeString": "struct ExchangeDomainV1.OrderKey"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 376,
+                  "name": "newCompleted",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 390,
+                  "src": "507:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 375,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "507:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "466:62:6"
+            },
+            "returnParameters": {
+              "id": 380,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "551:0:6"
+            },
+            "scope": 421,
+            "src": "445:171:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 419,
+              "nodeType": "Block",
+              "src": "717:160:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 400,
+                              "name": "key",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 392,
+                              "src": "762:3:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_OrderKey_$205_memory_ptr",
+                                "typeString": "struct ExchangeDomainV1.OrderKey memory"
+                              }
+                            },
+                            "id": 401,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "owner",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 198,
+                            "src": "762:9:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "expression": {
+                                "argumentTypes": null,
+                                "id": 402,
+                                "name": "key",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 392,
+                                "src": "773:3:6",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_struct$_OrderKey_$205_memory_ptr",
+                                  "typeString": "struct ExchangeDomainV1.OrderKey memory"
+                                }
+                              },
+                              "id": 403,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "sellAsset",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 202,
+                              "src": "773:13:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Asset_$196_memory",
+                                "typeString": "struct ExchangeDomainV1.Asset memory"
+                              }
+                            },
+                            "id": 404,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "token",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 191,
+                            "src": "773:19:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "expression": {
+                                "argumentTypes": null,
+                                "id": 405,
+                                "name": "key",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 392,
+                                "src": "794:3:6",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_struct$_OrderKey_$205_memory_ptr",
+                                  "typeString": "struct ExchangeDomainV1.OrderKey memory"
+                                }
+                              },
+                              "id": 406,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "sellAsset",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 202,
+                              "src": "794:13:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Asset_$196_memory",
+                                "typeString": "struct ExchangeDomainV1.Asset memory"
+                              }
+                            },
+                            "id": 407,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "tokenId",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 193,
+                            "src": "794:21:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "expression": {
+                                "argumentTypes": null,
+                                "id": 408,
+                                "name": "key",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 392,
+                                "src": "817:3:6",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_struct$_OrderKey_$205_memory_ptr",
+                                  "typeString": "struct ExchangeDomainV1.OrderKey memory"
+                                }
+                              },
+                              "id": 409,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "buyAsset",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 204,
+                              "src": "817:12:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Asset_$196_memory",
+                                "typeString": "struct ExchangeDomainV1.Asset memory"
+                              }
+                            },
+                            "id": 410,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "token",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 191,
+                            "src": "817:18:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "expression": {
+                                "argumentTypes": null,
+                                "id": 411,
+                                "name": "key",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 392,
+                                "src": "837:3:6",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_struct$_OrderKey_$205_memory_ptr",
+                                  "typeString": "struct ExchangeDomainV1.OrderKey memory"
+                                }
+                              },
+                              "id": 412,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "buyAsset",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 204,
+                              "src": "837:12:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Asset_$196_memory",
+                                "typeString": "struct ExchangeDomainV1.Asset memory"
+                              }
+                            },
+                            "id": 413,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "tokenId",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 193,
+                            "src": "837:20:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 414,
+                              "name": "key",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 392,
+                              "src": "859:3:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_OrderKey_$205_memory_ptr",
+                                "typeString": "struct ExchangeDomainV1.OrderKey memory"
+                              }
+                            },
+                            "id": 415,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "salt",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 200,
+                            "src": "859:8:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 398,
+                            "name": "abi",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1910,
+                            "src": "745:3:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_abi",
+                              "typeString": "abi"
+                            }
+                          },
+                          "id": 399,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "memberName": "encodePacked",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "745:16:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_abiencodepacked_pure$__$returns$_t_bytes_memory_ptr_$",
+                            "typeString": "function () pure returns (bytes memory)"
+                          }
+                        },
+                        "id": 416,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "745:123:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 397,
+                      "name": "keccak256",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1917,
+                      "src": "735:9:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                        "typeString": "function (bytes memory) pure returns (bytes32)"
+                      }
+                    },
+                    "id": 417,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "735:134:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 396,
+                  "id": 418,
+                  "nodeType": "Return",
+                  "src": "728:141:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 420,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCompletedKey",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 393,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 392,
+                  "name": "key",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 420,
+                  "src": "649:36:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_OrderKey_$205_memory_ptr",
+                    "typeString": "struct ExchangeDomainV1.OrderKey"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 391,
+                    "name": "ExchangeDomainV1.OrderKey",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 205,
+                    "src": "649:25:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_OrderKey_$205_storage_ptr",
+                      "typeString": "struct ExchangeDomainV1.OrderKey"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "648:38:6"
+            },
+            "returnParameters": {
+              "id": 396,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 395,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 420,
+                  "src": "708:7:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 394,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "708:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "707:9:6"
+            },
+            "scope": 421,
+            "src": "624:253:6",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 422,
+        "src": "135:745:6"
+      }
+    ],
+    "src": "0:880:6"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/A/project_2021/0422-NFT-Marketplace/work/BrandonMarketing-Contract/contracts/ExchangeStateV1.sol",
+      "exportedSymbols": {
+        "ExchangeStateV1": [
+          421
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.5",
+            ".0"
+          ]
+        },
+        "id": 349,
+        "name": "PragmaDirective",
+        "src": "0:23:6"
+      },
+      {
+        "attributes": {
+          "literals": [
+            "experimental",
+            "ABIEncoderV2"
+          ]
+        },
+        "id": 350,
+        "name": "PragmaDirective",
+        "src": "25:33:6"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 990,
+          "absolutePath": "/A/project_2021/0422-NFT-Marketplace/work/BrandonMarketing-Contract/contracts/OwnableOperatorRole.sol",
+          "file": "./OwnableOperatorRole.sol",
+          "scope": 422,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 351,
+        "name": "ImportDirective",
+        "src": "62:35:6"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 223,
+          "absolutePath": "/A/project_2021/0422-NFT-Marketplace/work/BrandonMarketing-Contract/contracts/ExchangeDomainV1.sol",
+          "file": "./ExchangeDomainV1.sol",
+          "scope": 422,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 352,
+        "name": "ImportDirective",
+        "src": "99:32:6"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            98,
+            838,
+            956,
+            989
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            421,
+            989,
+            838,
+            956,
+            98
+          ],
+          "name": "ExchangeStateV1",
+          "scope": 422
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": null
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "OwnableOperatorRole",
+                  "referencedDeclaration": 989,
+                  "type": "contract OwnableOperatorRole"
+                },
+                "id": 353,
+                "name": "UserDefinedTypeName",
+                "src": "163:19:6"
+              }
+            ],
+            "id": 354,
+            "name": "InheritanceSpecifier",
+            "src": "163:19:6"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "completed",
+              "scope": 421,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(bytes32 => uint256)",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(bytes32 => uint256)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 355,
+                    "name": "ElementaryTypeName",
+                    "src": "241:7:6"
+                  },
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 356,
+                    "name": "ElementaryTypeName",
+                    "src": "252:7:6"
+                  }
+                ],
+                "id": 357,
+                "name": "Mapping",
+                "src": "233:27:6"
+              }
+            ],
+            "id": 358,
+            "name": "VariableDeclaration",
+            "src": "233:44:6"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getCompleted",
+              "scope": 421,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "key",
+                      "scope": 372,
+                      "stateVariable": false,
+                      "storageLocation": "calldata",
+                      "type": "struct ExchangeDomainV1.OrderKey",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "ExchangeDomainV1.OrderKey",
+                          "referencedDeclaration": 205,
+                          "type": "struct ExchangeDomainV1.OrderKey"
+                        },
+                        "id": 359,
+                        "name": "UserDefinedTypeName",
+                        "src": "308:25:6"
+                      }
+                    ],
+                    "id": 360,
+                    "name": "VariableDeclaration",
+                    "src": "308:38:6"
+                  }
+                ],
+                "id": 361,
+                "name": "ParameterList",
+                "src": "307:40:6"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 372,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 362,
+                        "name": "ElementaryTypeName",
+                        "src": "371:7:6"
+                      }
+                    ],
+                    "id": 363,
+                    "name": "VariableDeclaration",
+                    "src": "371:7:6"
+                  }
+                ],
+                "id": 364,
+                "name": "ParameterList",
+                "src": "370:9:6"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 364
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 358,
+                              "type": "mapping(bytes32 => uint256)",
+                              "value": "completed"
+                            },
+                            "id": 365,
+                            "name": "Identifier",
+                            "src": "398:9:6"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "bytes32",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_struct$_OrderKey_$205_calldata_ptr",
+                                      "typeString": "struct ExchangeDomainV1.OrderKey calldata"
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 420,
+                                  "type": "function (struct ExchangeDomainV1.OrderKey memory) pure returns (bytes32)",
+                                  "value": "getCompletedKey"
+                                },
+                                "id": 366,
+                                "name": "Identifier",
+                                "src": "408:15:6"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 360,
+                                  "type": "struct ExchangeDomainV1.OrderKey calldata",
+                                  "value": "key"
+                                },
+                                "id": 367,
+                                "name": "Identifier",
+                                "src": "424:3:6"
+                              }
+                            ],
+                            "id": 368,
+                            "name": "FunctionCall",
+                            "src": "408:20:6"
+                          }
+                        ],
+                        "id": 369,
+                        "name": "IndexAccess",
+                        "src": "398:31:6"
+                      }
+                    ],
+                    "id": 370,
+                    "name": "Return",
+                    "src": "391:38:6"
+                  }
+                ],
+                "id": 371,
+                "name": "Block",
+                "src": "380:57:6"
+              }
+            ],
+            "id": 372,
+            "name": "FunctionDefinition",
+            "src": "286:151:6"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "setCompleted",
+              "scope": 421,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "key",
+                      "scope": 390,
+                      "stateVariable": false,
+                      "storageLocation": "calldata",
+                      "type": "struct ExchangeDomainV1.OrderKey",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "ExchangeDomainV1.OrderKey",
+                          "referencedDeclaration": 205,
+                          "type": "struct ExchangeDomainV1.OrderKey"
+                        },
+                        "id": 373,
+                        "name": "UserDefinedTypeName",
+                        "src": "467:25:6"
+                      }
+                    ],
+                    "id": 374,
+                    "name": "VariableDeclaration",
+                    "src": "467:38:6"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "newCompleted",
+                      "scope": 390,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 375,
+                        "name": "ElementaryTypeName",
+                        "src": "507:7:6"
+                      }
+                    ],
+                    "id": 376,
+                    "name": "VariableDeclaration",
+                    "src": "507:20:6"
+                  }
+                ],
+                "id": 377,
+                "name": "ParameterList",
+                "src": "466:62:6"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 380,
+                "name": "ParameterList",
+                "src": "551:0:6"
+              },
+              {
+                "attributes": {
+                  "arguments": null
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 792,
+                      "type": "modifier ()",
+                      "value": "onlyOperator"
+                    },
+                    "id": 378,
+                    "name": "Identifier",
+                    "src": "538:12:6"
+                  }
+                ],
+                "id": 379,
+                "name": "ModifierInvocation",
+                "src": "538:12:6"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 358,
+                                  "type": "mapping(bytes32 => uint256)",
+                                  "value": "completed"
+                                },
+                                "id": 381,
+                                "name": "Identifier",
+                                "src": "562:9:6"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "type": "bytes32",
+                                  "type_conversion": false
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_struct$_OrderKey_$205_calldata_ptr",
+                                          "typeString": "struct ExchangeDomainV1.OrderKey calldata"
+                                        }
+                                      ],
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 420,
+                                      "type": "function (struct ExchangeDomainV1.OrderKey memory) pure returns (bytes32)",
+                                      "value": "getCompletedKey"
+                                    },
+                                    "id": 382,
+                                    "name": "Identifier",
+                                    "src": "572:15:6"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 374,
+                                      "type": "struct ExchangeDomainV1.OrderKey calldata",
+                                      "value": "key"
+                                    },
+                                    "id": 383,
+                                    "name": "Identifier",
+                                    "src": "588:3:6"
+                                  }
+                                ],
+                                "id": 384,
+                                "name": "FunctionCall",
+                                "src": "572:20:6"
+                              }
+                            ],
+                            "id": 385,
+                            "name": "IndexAccess",
+                            "src": "562:31:6"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 376,
+                              "type": "uint256",
+                              "value": "newCompleted"
+                            },
+                            "id": 386,
+                            "name": "Identifier",
+                            "src": "596:12:6"
+                          }
+                        ],
+                        "id": 387,
+                        "name": "Assignment",
+                        "src": "562:46:6"
+                      }
+                    ],
+                    "id": 388,
+                    "name": "ExpressionStatement",
+                    "src": "562:46:6"
+                  }
+                ],
+                "id": 389,
+                "name": "Block",
+                "src": "551:65:6"
+              }
+            ],
+            "id": 390,
+            "name": "FunctionDefinition",
+            "src": "445:171:6"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getCompletedKey",
+              "scope": 421,
+              "stateMutability": "pure",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "key",
+                      "scope": 420,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "struct ExchangeDomainV1.OrderKey",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "ExchangeDomainV1.OrderKey",
+                          "referencedDeclaration": 205,
+                          "type": "struct ExchangeDomainV1.OrderKey"
+                        },
+                        "id": 391,
+                        "name": "UserDefinedTypeName",
+                        "src": "649:25:6"
+                      }
+                    ],
+                    "id": 392,
+                    "name": "VariableDeclaration",
+                    "src": "649:36:6"
+                  }
+                ],
+                "id": 393,
+                "name": "ParameterList",
+                "src": "648:38:6"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 420,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 394,
+                        "name": "ElementaryTypeName",
+                        "src": "708:7:6"
+                      }
+                    ],
+                    "id": 395,
+                    "name": "VariableDeclaration",
+                    "src": "708:7:6"
+                  }
+                ],
+                "id": 396,
+                "name": "ParameterList",
+                "src": "707:9:6"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 396
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "bytes32",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bytes_memory_ptr",
+                                  "typeString": "bytes memory"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1917,
+                              "type": "function (bytes memory) pure returns (bytes32)",
+                              "value": "keccak256"
+                            },
+                            "id": 397,
+                            "name": "Identifier",
+                            "src": "735:9:6"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "bytes memory",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "member_name": "encodePacked",
+                                  "referencedDeclaration": null,
+                                  "type": "function () pure returns (bytes memory)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 1910,
+                                      "type": "abi",
+                                      "value": "abi"
+                                    },
+                                    "id": 398,
+                                    "name": "Identifier",
+                                    "src": "745:3:6"
+                                  }
+                                ],
+                                "id": 399,
+                                "name": "MemberAccess",
+                                "src": "745:16:6"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "owner",
+                                  "referencedDeclaration": 198,
+                                  "type": "address"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 392,
+                                      "type": "struct ExchangeDomainV1.OrderKey memory",
+                                      "value": "key"
+                                    },
+                                    "id": 400,
+                                    "name": "Identifier",
+                                    "src": "762:3:6"
+                                  }
+                                ],
+                                "id": 401,
+                                "name": "MemberAccess",
+                                "src": "762:9:6"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "token",
+                                  "referencedDeclaration": 191,
+                                  "type": "address"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "sellAsset",
+                                      "referencedDeclaration": 202,
+                                      "type": "struct ExchangeDomainV1.Asset memory"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 392,
+                                          "type": "struct ExchangeDomainV1.OrderKey memory",
+                                          "value": "key"
+                                        },
+                                        "id": 402,
+                                        "name": "Identifier",
+                                        "src": "773:3:6"
+                                      }
+                                    ],
+                                    "id": 403,
+                                    "name": "MemberAccess",
+                                    "src": "773:13:6"
+                                  }
+                                ],
+                                "id": 404,
+                                "name": "MemberAccess",
+                                "src": "773:19:6"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "tokenId",
+                                  "referencedDeclaration": 193,
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "sellAsset",
+                                      "referencedDeclaration": 202,
+                                      "type": "struct ExchangeDomainV1.Asset memory"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 392,
+                                          "type": "struct ExchangeDomainV1.OrderKey memory",
+                                          "value": "key"
+                                        },
+                                        "id": 405,
+                                        "name": "Identifier",
+                                        "src": "794:3:6"
+                                      }
+                                    ],
+                                    "id": 406,
+                                    "name": "MemberAccess",
+                                    "src": "794:13:6"
+                                  }
+                                ],
+                                "id": 407,
+                                "name": "MemberAccess",
+                                "src": "794:21:6"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "token",
+                                  "referencedDeclaration": 191,
+                                  "type": "address"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "buyAsset",
+                                      "referencedDeclaration": 204,
+                                      "type": "struct ExchangeDomainV1.Asset memory"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 392,
+                                          "type": "struct ExchangeDomainV1.OrderKey memory",
+                                          "value": "key"
+                                        },
+                                        "id": 408,
+                                        "name": "Identifier",
+                                        "src": "817:3:6"
+                                      }
+                                    ],
+                                    "id": 409,
+                                    "name": "MemberAccess",
+                                    "src": "817:12:6"
+                                  }
+                                ],
+                                "id": 410,
+                                "name": "MemberAccess",
+                                "src": "817:18:6"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "tokenId",
+                                  "referencedDeclaration": 193,
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "buyAsset",
+                                      "referencedDeclaration": 204,
+                                      "type": "struct ExchangeDomainV1.Asset memory"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 392,
+                                          "type": "struct ExchangeDomainV1.OrderKey memory",
+                                          "value": "key"
+                                        },
+                                        "id": 411,
+                                        "name": "Identifier",
+                                        "src": "837:3:6"
+                                      }
+                                    ],
+                                    "id": 412,
+                                    "name": "MemberAccess",
+                                    "src": "837:12:6"
+                                  }
+                                ],
+                                "id": 413,
+                                "name": "MemberAccess",
+                                "src": "837:20:6"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "salt",
+                                  "referencedDeclaration": 200,
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 392,
+                                      "type": "struct ExchangeDomainV1.OrderKey memory",
+                                      "value": "key"
+                                    },
+                                    "id": 414,
+                                    "name": "Identifier",
+                                    "src": "859:3:6"
+                                  }
+                                ],
+                                "id": 415,
+                                "name": "MemberAccess",
+                                "src": "859:8:6"
+                              }
+                            ],
+                            "id": 416,
+                            "name": "FunctionCall",
+                            "src": "745:123:6"
+                          }
+                        ],
+                        "id": 417,
+                        "name": "FunctionCall",
+                        "src": "735:134:6"
+                      }
+                    ],
+                    "id": 418,
+                    "name": "Return",
+                    "src": "728:141:6"
+                  }
+                ],
+                "id": 419,
+                "name": "Block",
+                "src": "717:160:6"
+              }
+            ],
+            "id": 420,
+            "name": "FunctionDefinition",
+            "src": "624:253:6"
+          }
+        ],
+        "id": 421,
+        "name": "ContractDefinition",
+        "src": "135:745:6"
+      }
+    ],
+    "id": 422,
+    "name": "SourceUnit",
+    "src": "0:880:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.17+commit.d19bba13.Emscripten.clang"
+  },
+  "networks": {
+    "4": {
+      "events": {},
+      "links": {},
+      "address": "0xF279ac3BfB8021175b2aD8a6e7684C90C0e5Ab93",
+      "transactionHash": "0x364918ae91043ed713870fc92ebc36c60ad8c015412718e3db29d733120405b3"
+    }
+  },
+  "schemaVersion": "3.3.4",
+  "updatedAt": "2021-05-11T15:01:36.155Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {
+      "isOwner()": {
+        "details": "Returns true if the caller is the current owner."
+      },
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner.      * NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      }
+    }
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

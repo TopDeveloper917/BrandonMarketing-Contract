@@ -1,0 +1,1050 @@
+{
+  "contractName": "ExchangeDomainV1",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.17+commit.d19bba13\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/A/project_2021/0422-NFT-Marketplace/work/BrandonMarketing-Contract/contracts/ExchangeDomainV1.sol\":\"ExchangeDomainV1\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/A/project_2021/0422-NFT-Marketplace/work/BrandonMarketing-Contract/contracts/ExchangeDomainV1.sol\":{\"keccak256\":\"0x772e1b51347b641a65b04ed0e11b62e9ea4fcbea46fb69cbca2042b1cd89eff7\",\"urls\":[\"bzz-raw://25b0ae7f391121f5272efbda601ad82d89102ac75812a8b41fa1e9d42732f598\",\"dweb:/ipfs/QmQ234zT6MaTbb7AokJifYyPsBGEckVPKdv2cu2gvtbjXB\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a723158205471cc4c26390a70a44baa4198148ca9e6c8e069b0a3ab3655e78483c4ae5f0264736f6c63430005110032",
+  "deployedBytecode": "0x6080604052600080fdfea265627a7a723158205471cc4c26390a70a44baa4198148ca9e6c8e069b0a3ab3655e78483c4ae5f0264736f6c63430005110032",
+  "sourceMap": "27:960:2:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;27:960:2;;;;;;;",
+  "deployedSourceMap": "27:960:2:-;;;;;",
+  "source": "pragma solidity ^0.5.0;\r\n\r\ncontract ExchangeDomainV1 {\r\n\r\n    enum AssetType {ETH, ERC20, ERC1155, ERC721, ERC721Deprecated}\r\n\r\n    struct Asset {\r\n        address token;\r\n        uint tokenId;\r\n        AssetType assetType;\r\n    }\r\n\r\n    struct OrderKey {\r\n        /* who signed the order */\r\n        address owner;\r\n        /* random number */\r\n        uint salt;\r\n\r\n        /* what has owner */\r\n        Asset sellAsset;\r\n\r\n        /* what wants owner */\r\n        Asset buyAsset;\r\n    }\r\n\r\n    struct Order {\r\n        OrderKey key;\r\n\r\n        /* how much has owner (in wei, or UINT256_MAX if ERC-721) */\r\n        uint selling;\r\n        /* how much wants owner (in wei, or UINT256_MAX if ERC-721) */\r\n        uint buying;\r\n\r\n        /* fee for selling */\r\n        uint sellerFee;\r\n    }\r\n\r\n    /* An ECDSA signature. */\r\n    struct Sig {\r\n        /* v parameter */\r\n        uint8 v;\r\n        /* r parameter */\r\n        bytes32 r;\r\n        /* s parameter */\r\n        bytes32 s;\r\n    }\r\n}",
+  "sourcePath": "A:/project_2021/0422-NFT-Marketplace/work/BrandonMarketing-Contract/contracts/ExchangeDomainV1.sol",
+  "ast": {
+    "absolutePath": "/A/project_2021/0422-NFT-Marketplace/work/BrandonMarketing-Contract/contracts/ExchangeDomainV1.sol",
+    "exportedSymbols": {
+      "ExchangeDomainV1": [
+        119
+      ]
+    },
+    "id": 120,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 80,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:2"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 119,
+        "linearizedBaseContracts": [
+          119
+        ],
+        "name": "ExchangeDomainV1",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "ExchangeDomainV1.AssetType",
+            "id": 86,
+            "members": [
+              {
+                "id": 81,
+                "name": "ETH",
+                "nodeType": "EnumValue",
+                "src": "78:3:2"
+              },
+              {
+                "id": 82,
+                "name": "ERC20",
+                "nodeType": "EnumValue",
+                "src": "83:5:2"
+              },
+              {
+                "id": 83,
+                "name": "ERC1155",
+                "nodeType": "EnumValue",
+                "src": "90:7:2"
+              },
+              {
+                "id": 84,
+                "name": "ERC721",
+                "nodeType": "EnumValue",
+                "src": "99:6:2"
+              },
+              {
+                "id": 85,
+                "name": "ERC721Deprecated",
+                "nodeType": "EnumValue",
+                "src": "107:16:2"
+              }
+            ],
+            "name": "AssetType",
+            "nodeType": "EnumDefinition",
+            "src": "62:62:2"
+          },
+          {
+            "canonicalName": "ExchangeDomainV1.Asset",
+            "id": 93,
+            "members": [
+              {
+                "constant": false,
+                "id": 88,
+                "name": "token",
+                "nodeType": "VariableDeclaration",
+                "scope": 93,
+                "src": "156:13:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 87,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "156:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 90,
+                "name": "tokenId",
+                "nodeType": "VariableDeclaration",
+                "scope": 93,
+                "src": "180:12:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 89,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "180:4:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 92,
+                "name": "assetType",
+                "nodeType": "VariableDeclaration",
+                "scope": 93,
+                "src": "203:19:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_AssetType_$86",
+                  "typeString": "enum ExchangeDomainV1.AssetType"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 91,
+                  "name": "AssetType",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 86,
+                  "src": "203:9:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_AssetType_$86",
+                    "typeString": "enum ExchangeDomainV1.AssetType"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Asset",
+            "nodeType": "StructDefinition",
+            "scope": 119,
+            "src": "132:98:2",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "ExchangeDomainV1.OrderKey",
+            "id": 102,
+            "members": [
+              {
+                "constant": false,
+                "id": 95,
+                "name": "owner",
+                "nodeType": "VariableDeclaration",
+                "scope": 102,
+                "src": "301:13:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 94,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "301:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 97,
+                "name": "salt",
+                "nodeType": "VariableDeclaration",
+                "scope": 102,
+                "src": "354:9:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 96,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "354:4:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 99,
+                "name": "sellAsset",
+                "nodeType": "VariableDeclaration",
+                "scope": 102,
+                "src": "406:15:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Asset_$93_storage_ptr",
+                  "typeString": "struct ExchangeDomainV1.Asset"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 98,
+                  "name": "Asset",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 93,
+                  "src": "406:5:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Asset_$93_storage_ptr",
+                    "typeString": "struct ExchangeDomainV1.Asset"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 101,
+                "name": "buyAsset",
+                "nodeType": "VariableDeclaration",
+                "scope": 102,
+                "src": "466:14:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Asset_$93_storage_ptr",
+                  "typeString": "struct ExchangeDomainV1.Asset"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 100,
+                  "name": "Asset",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 93,
+                  "src": "466:5:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Asset_$93_storage_ptr",
+                    "typeString": "struct ExchangeDomainV1.Asset"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "OrderKey",
+            "nodeType": "StructDefinition",
+            "scope": 119,
+            "src": "238:250:2",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "ExchangeDomainV1.Order",
+            "id": 111,
+            "members": [
+              {
+                "constant": false,
+                "id": 104,
+                "name": "key",
+                "nodeType": "VariableDeclaration",
+                "scope": 111,
+                "src": "520:12:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_OrderKey_$102_storage_ptr",
+                  "typeString": "struct ExchangeDomainV1.OrderKey"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 103,
+                  "name": "OrderKey",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 102,
+                  "src": "520:8:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_OrderKey_$102_storage_ptr",
+                    "typeString": "struct ExchangeDomainV1.OrderKey"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 106,
+                "name": "selling",
+                "nodeType": "VariableDeclaration",
+                "scope": 111,
+                "src": "615:12:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 105,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "615:4:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 108,
+                "name": "buying",
+                "nodeType": "VariableDeclaration",
+                "scope": 111,
+                "src": "710:11:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 107,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "710:4:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 110,
+                "name": "sellerFee",
+                "nodeType": "VariableDeclaration",
+                "scope": 111,
+                "src": "765:14:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 109,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "765:4:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Order",
+            "nodeType": "StructDefinition",
+            "scope": 119,
+            "src": "496:291:2",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "ExchangeDomainV1.Sig",
+            "id": 118,
+            "members": [
+              {
+                "constant": false,
+                "id": 113,
+                "name": "v",
+                "nodeType": "VariableDeclaration",
+                "scope": 118,
+                "src": "875:7:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 112,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "875:5:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 115,
+                "name": "r",
+                "nodeType": "VariableDeclaration",
+                "scope": 118,
+                "src": "920:9:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 114,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "920:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 117,
+                "name": "s",
+                "nodeType": "VariableDeclaration",
+                "scope": 118,
+                "src": "967:9:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 116,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "967:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Sig",
+            "nodeType": "StructDefinition",
+            "scope": 119,
+            "src": "826:158:2",
+            "visibility": "public"
+          }
+        ],
+        "scope": 120,
+        "src": "27:960:2"
+      }
+    ],
+    "src": "0:987:2"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/A/project_2021/0422-NFT-Marketplace/work/BrandonMarketing-Contract/contracts/ExchangeDomainV1.sol",
+      "exportedSymbols": {
+        "ExchangeDomainV1": [
+          119
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.5",
+            ".0"
+          ]
+        },
+        "id": 80,
+        "name": "PragmaDirective",
+        "src": "0:23:2"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            119
+          ],
+          "name": "ExchangeDomainV1",
+          "scope": 120
+        },
+        "children": [
+          {
+            "attributes": {
+              "canonicalName": "ExchangeDomainV1.AssetType",
+              "name": "AssetType"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "ETH"
+                },
+                "id": 81,
+                "name": "EnumValue",
+                "src": "78:3:2"
+              },
+              {
+                "attributes": {
+                  "name": "ERC20"
+                },
+                "id": 82,
+                "name": "EnumValue",
+                "src": "83:5:2"
+              },
+              {
+                "attributes": {
+                  "name": "ERC1155"
+                },
+                "id": 83,
+                "name": "EnumValue",
+                "src": "90:7:2"
+              },
+              {
+                "attributes": {
+                  "name": "ERC721"
+                },
+                "id": 84,
+                "name": "EnumValue",
+                "src": "99:6:2"
+              },
+              {
+                "attributes": {
+                  "name": "ERC721Deprecated"
+                },
+                "id": 85,
+                "name": "EnumValue",
+                "src": "107:16:2"
+              }
+            ],
+            "id": 86,
+            "name": "EnumDefinition",
+            "src": "62:62:2"
+          },
+          {
+            "attributes": {
+              "canonicalName": "ExchangeDomainV1.Asset",
+              "name": "Asset",
+              "scope": 119,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "token",
+                  "scope": 93,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "stateMutability": "nonpayable",
+                      "type": "address"
+                    },
+                    "id": 87,
+                    "name": "ElementaryTypeName",
+                    "src": "156:7:2"
+                  }
+                ],
+                "id": 88,
+                "name": "VariableDeclaration",
+                "src": "156:13:2"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "tokenId",
+                  "scope": 93,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 89,
+                    "name": "ElementaryTypeName",
+                    "src": "180:4:2"
+                  }
+                ],
+                "id": 90,
+                "name": "VariableDeclaration",
+                "src": "180:12:2"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "assetType",
+                  "scope": 93,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "enum ExchangeDomainV1.AssetType",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "AssetType",
+                      "referencedDeclaration": 86,
+                      "type": "enum ExchangeDomainV1.AssetType"
+                    },
+                    "id": 91,
+                    "name": "UserDefinedTypeName",
+                    "src": "203:9:2"
+                  }
+                ],
+                "id": 92,
+                "name": "VariableDeclaration",
+                "src": "203:19:2"
+              }
+            ],
+            "id": 93,
+            "name": "StructDefinition",
+            "src": "132:98:2"
+          },
+          {
+            "attributes": {
+              "canonicalName": "ExchangeDomainV1.OrderKey",
+              "name": "OrderKey",
+              "scope": 119,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "owner",
+                  "scope": 102,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "stateMutability": "nonpayable",
+                      "type": "address"
+                    },
+                    "id": 94,
+                    "name": "ElementaryTypeName",
+                    "src": "301:7:2"
+                  }
+                ],
+                "id": 95,
+                "name": "VariableDeclaration",
+                "src": "301:13:2"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "salt",
+                  "scope": 102,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 96,
+                    "name": "ElementaryTypeName",
+                    "src": "354:4:2"
+                  }
+                ],
+                "id": 97,
+                "name": "VariableDeclaration",
+                "src": "354:9:2"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "sellAsset",
+                  "scope": 102,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "struct ExchangeDomainV1.Asset",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Asset",
+                      "referencedDeclaration": 93,
+                      "type": "struct ExchangeDomainV1.Asset"
+                    },
+                    "id": 98,
+                    "name": "UserDefinedTypeName",
+                    "src": "406:5:2"
+                  }
+                ],
+                "id": 99,
+                "name": "VariableDeclaration",
+                "src": "406:15:2"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "buyAsset",
+                  "scope": 102,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "struct ExchangeDomainV1.Asset",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Asset",
+                      "referencedDeclaration": 93,
+                      "type": "struct ExchangeDomainV1.Asset"
+                    },
+                    "id": 100,
+                    "name": "UserDefinedTypeName",
+                    "src": "466:5:2"
+                  }
+                ],
+                "id": 101,
+                "name": "VariableDeclaration",
+                "src": "466:14:2"
+              }
+            ],
+            "id": 102,
+            "name": "StructDefinition",
+            "src": "238:250:2"
+          },
+          {
+            "attributes": {
+              "canonicalName": "ExchangeDomainV1.Order",
+              "name": "Order",
+              "scope": 119,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "key",
+                  "scope": 111,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "struct ExchangeDomainV1.OrderKey",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "OrderKey",
+                      "referencedDeclaration": 102,
+                      "type": "struct ExchangeDomainV1.OrderKey"
+                    },
+                    "id": 103,
+                    "name": "UserDefinedTypeName",
+                    "src": "520:8:2"
+                  }
+                ],
+                "id": 104,
+                "name": "VariableDeclaration",
+                "src": "520:12:2"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "selling",
+                  "scope": 111,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 105,
+                    "name": "ElementaryTypeName",
+                    "src": "615:4:2"
+                  }
+                ],
+                "id": 106,
+                "name": "VariableDeclaration",
+                "src": "615:12:2"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "buying",
+                  "scope": 111,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 107,
+                    "name": "ElementaryTypeName",
+                    "src": "710:4:2"
+                  }
+                ],
+                "id": 108,
+                "name": "VariableDeclaration",
+                "src": "710:11:2"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "sellerFee",
+                  "scope": 111,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 109,
+                    "name": "ElementaryTypeName",
+                    "src": "765:4:2"
+                  }
+                ],
+                "id": 110,
+                "name": "VariableDeclaration",
+                "src": "765:14:2"
+              }
+            ],
+            "id": 111,
+            "name": "StructDefinition",
+            "src": "496:291:2"
+          },
+          {
+            "attributes": {
+              "canonicalName": "ExchangeDomainV1.Sig",
+              "name": "Sig",
+              "scope": 119,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "v",
+                  "scope": 118,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint8",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint8",
+                      "type": "uint8"
+                    },
+                    "id": 112,
+                    "name": "ElementaryTypeName",
+                    "src": "875:5:2"
+                  }
+                ],
+                "id": 113,
+                "name": "VariableDeclaration",
+                "src": "875:7:2"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "r",
+                  "scope": 118,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bytes32",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 114,
+                    "name": "ElementaryTypeName",
+                    "src": "920:7:2"
+                  }
+                ],
+                "id": 115,
+                "name": "VariableDeclaration",
+                "src": "920:9:2"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "s",
+                  "scope": 118,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bytes32",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 116,
+                    "name": "ElementaryTypeName",
+                    "src": "967:7:2"
+                  }
+                ],
+                "id": 117,
+                "name": "VariableDeclaration",
+                "src": "967:9:2"
+              }
+            ],
+            "id": 118,
+            "name": "StructDefinition",
+            "src": "826:158:2"
+          }
+        ],
+        "id": 119,
+        "name": "ContractDefinition",
+        "src": "27:960:2"
+      }
+    ],
+    "id": 120,
+    "name": "SourceUnit",
+    "src": "0:987:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.17+commit.d19bba13.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.4",
+  "updatedAt": "2021-05-11T09:28:57.367Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

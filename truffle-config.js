@@ -80,7 +80,7 @@ module.exports = {
         return new HDWalletProvider(privateKeys, "https://rinkeby.infura.io/v3/" + infuraKey)
       },
       network_id: 4, // eslint-disable-line camelcase
-      gas: 10000000, // Ropsten has a lower block limit than mainnet
+      gas: 10000000, // Rinkeby has a lower block limit than mainnet (1 wei)
       confirmations: 2, // # of confs to wait between deployments. (default: 0)
       timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
       skipDryRun: true, // Skip dry run before migrations? (default: false for public nets )
